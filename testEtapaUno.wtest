@@ -1,0 +1,22 @@
+import profesional.*
+import universidad.*
+import empresa.*
+
+describe "grupo de testeos de la etapa 1" {
+
+  const sanMartin = new Universidad(provincia = "Buenos Aires", honorariosRec= 3500)
+  const rosario = new Universidad(provincia = "Santa Fe", honorariosRec=2800)
+  const corrientes = new Universidad(provincia = "Corrientes", honorariosRec=4200)
+  const hurlingham = new Universidad(provincia = "Buenos Aires", honorariosRec=8800)
+
+  const juana = new ProfesionalVinculado(universidad = rosario)
+  const melina = new ProfesionalAsociado(universidad = corrientes)
+  const rocio = new ProfesionalLibre(universidad = hurlingham, honorarios = 5000, provincia = ["SantaFe", "Cordoba", "BuenosAires"])
+  const Luciana = new ProfesionalLibre(universidad = rosario, honorarios = 3200, provincia = ["SantaFe", "EntreRios"])
+
+  const empresaUno = new Empresa(honorarioRef = 3500)
+  test "pepita has initial energy" {
+    assert.equals(100, pepita.energy())
+  }
+
+}

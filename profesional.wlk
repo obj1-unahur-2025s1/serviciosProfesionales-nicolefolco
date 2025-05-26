@@ -1,10 +1,10 @@
-class ProfesionalUniversitario {
+class ProfesionalVinculado {
   const property universidad
   method provincia() = [universidad.esDeProvincia()]
   method honorarios() = universidad.honorariosRec()
 }
 
-class ProfesionalLitoral {
+class ProfesionalAsociado {
  var property universidad
  method provincia() = ["Entre Rios", "Corrientes", "Santa Fe"]
  method honorarios() = 3000 
@@ -18,4 +18,5 @@ method agregarProvincia(unaProvincia) {
   provincia.add(provincia)
 }
 }
+
 
