@@ -25,4 +25,9 @@ class empresa {
     method esDeGenteAcotada(){
         return (empleados.all({e => e.provincia().size() <= 3}))
     }
+
+    method puedeSatisfacer(unSolicitante){
+      empleados.any({e => unSolicitante.puedeSerAtendida(e)})
+     }
 }
+
