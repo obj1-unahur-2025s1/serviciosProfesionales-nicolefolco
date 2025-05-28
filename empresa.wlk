@@ -1,6 +1,7 @@
-class empresa {
+class Empresa {
     const property empleados = []
     var property honorarioRef
+    var clientes = []
 
     method contratar(unProfesional) {
       empleados.add(unProfesional)
@@ -15,7 +16,7 @@ class empresa {
     }
 
     method universidadesFormadoras(){
-      return  (empleados.map({ e => e.universidad()}).asSet())
+        return  (empleados.map({ e => e.universidad()}).asSet())
     }
     
     method profesionalBarato(){
@@ -27,7 +28,16 @@ class empresa {
     }
 
     method puedeSatisfacer(unSolicitante){
-      empleados.any({e => unSolicitante.puedeSerAtendida(e)})
+        return empleados.any({e => unSolicitante.puedeSerAtendida(e)})
      }
+
+    method darServicio(unSolicitante){
+        if(self.puedeSatisfacer(unSolicitante)){
+            self.error("no puede ser atendido")
+            const profesionalQueAtiende = empleados.filter({p => unSolicitante.puedeSerAtendida(p)}).anyOne()
+            profesionalQueAtiende.cobrar(profesionalQueAtiende.honorariosPorHora())
+            clientes.add(unSolicitante)
+        } 
+    }
 }
 
