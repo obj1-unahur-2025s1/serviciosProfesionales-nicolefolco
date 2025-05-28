@@ -22,6 +22,6 @@ class Club {
     var property provincias = #{}
 
     method puedeSerAtendida(unProfesional){
-        return not provincias.intersection(unProfesional.provincia()).isEmpty()
+        return not provincias.intersection(unProfesional.provincia().asSet()).isEmpty()
     }
 }
